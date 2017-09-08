@@ -1,0 +1,19 @@
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-lg-6">
+      <h2>Lugares cercanos</h2>
+      <a routerLink="/crear" class="btn btn-primary">Crear nuevo negocio</a>
+        <ul class="list-group">
+          <span *ngFor="let lugar of lugares">
+            <a routerLink="/detalle/{{lugar.id}}" [queryParams]="{action2:'edit', referer:'google'}"><li class="list-group-item" *ngIf="lugar.active" >{{lugar.nombre}}</li></a>
+          </span>
+        </ul> 
+    </div>
+    <div class="col-md-4 col-lg-6">
+      <h2>Destacados</h2>
+    </div>  
+  </div>
+</div>
