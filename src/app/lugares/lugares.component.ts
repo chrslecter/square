@@ -8,14 +8,19 @@ import {LugaresService} from '../services/lugares.service';
 })
 export class LugaresComponent {
 
-  lat:number = 14.009945537201785;
-  lng:number= -87.01128959655762;
+  lat:any=14.0726558;
+  lng:any=-87.1928261;
   lugares=null;
   constructor(private lugaresService: LugaresService){
-    this.lugares = lugaresService.getLugares();
+    // this.lugares = lugaresService.getLugares();
+    lugaresService.getLugares()
+      .subscribe(lugares =>{
+        this.lugares = lugares;
+        console.log(this.lugares);
+      });
   }
-  public buscarLugar(id){
-    return this.lugares.filter((lugar)=>{return lugar.id==id})[0]||null;
-  }
+  // public buscarLugar(id){
+  //   return this.lugares.filter((lugar)=>{return lugar.id==id})[0]||null;
+  // }
 
 }

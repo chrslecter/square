@@ -1,6 +1,9 @@
 <div class="well">
 		<a routerLink="/lugares">Lugares</a> / {{lugar.nombre}}
 </div>
+<agm-map [latitude]="lugar.lat" [longitude]="lugar.lng" [zoom]="14">
+  <agm-marker [latitude]="lugar.lat" [longitude]="lugar.lng"></agm-marker>
+</agm-map>
 
 <div class="container">
 	<h2>{{lugar.nombre}} <small>- {{lugar.distancia}} KM</small></h2>
